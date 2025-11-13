@@ -4,6 +4,13 @@
     const loginBtn = document.querySelector('.login-btn');
     const greeting = document.querySelector('.user-greeting');
     const logoutBtn = document.querySelector('.logout-btn');
+    const logoBlock = document.querySelector('.container-logo-block');
+
+    if (logoBlock) {
+      logoBlock.addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
+    }
 
     if (cur) {
       try {
