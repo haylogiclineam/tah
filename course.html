@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Դասընթաց — Տեղեկատվական անվտանգության հիմունքներ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+   <header class="site-header">
+    <div >
+      <!-- <a class="logo" href="index.html"> Տեղեկատվական անվտանգության հիմունքներ</a> -->
+      <div class="container">
+        <div class="container-logo-block">
+          <img src="assets/images/logo.png" alt="">
+        </div>
+        <nav class="topnav">
+          <a href="index.html">Գլխավոր</a>
+          <a href="about.html">Մեր մասին</a>
+          <a href="course.html">Դասընթաց</a>
+          <a href="resources.html">Ռեսուրսներ</a>
+          <a href="contact.html">Կապ մեզ հետ</a>
+          <a href="login.html" class="btn primary small">Մուտք / Գրանցվել</a>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container content course-page">
+    <h2>Դասընթաց (Course)</h2>
+    <p class="muted">Ընդհանուր մոդուլների ցանկը՝ ընտրելու համար</p>
+
+    <div class="two-col">
+      <aside class="sidebar">
+        <h4>Մոդուլներ</h4>
+        <ul id="modulesList" class="module-list">
+          <!-- JS populate -->
+        </ul>
+
+        <div class="progress-wrap">
+          <label>Անկախություն ձեր առաջընթացը</label>
+          <div class="progress">
+            <div id="courseProgress" class="progress-bar" style="width:0%"></div>
+          </div>
+          <div id="progressText" class="muted">0% ավարտված</div>
+        </div>
+      </aside>
+
+      <section class="course-main" id="moduleContent">
+        <h3>Ընտրեք մոդուլ՝ ուսման համար</h3>
+        <p class="muted">Ահա համալիր նյութերը՝ տեսագրություններ, թեստեր եւ հավելվածներ</p>
+        <div id="contentCard" class="card">
+          <h4 id="mTitle">Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը</h4>
+          <p id="mDesc">Փորձարկող նյութերի ու ցուցումների սկիզբ։</p>
+
+          <div class="media">
+            <!-- embedded video example -->
+            <iframe id="mVideo" width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video lesson" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <div class="card-actions">
+            <a id="openPractice" href="practice.html" class="btn">Գործնական առաջադրանք</a>
+            <a id="openQuiz" href="quiz.html" class="btn">Թեստ</a>
+            <button id="markDone" class="btn">Մարկ անել՝ ավարտված</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Course-specific setup
+    document.addEventListener('DOMContentLoaded', () => {
+      const modules = [
+        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k'},
+        {id:2, title:'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն', desc:'Մոդելներ, սպառնալիքներ և վտանգներ', video:'https://www.youtube.com/embed/6_b7RDuLwcI'},
+        {id:3, title:'Մոդուլ 3. Պաշտպանության եղանակներ և մեթոդներ', desc:'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում', video:'https://www.youtube.com/embed/3fumBcKC6RE'},
+        {id:4, title:'Մոդուլ 4. Ժամանակակից մեթոդներ', desc:'Մոդեռն միջոցներ և պրակտիկ կիրառումներ', video:'https://www.youtube.com/embed/V-_O7nl0Ii0'}
+      ];
+
+      const modulesList = document.getElementById('modulesList');
+      const mTitle = document.getElementById('mTitle');
+      const mDesc = document.getElementById('mDesc');
+      const mVideo = document.getElementById('mVideo');
+      const markDone = document.getElementById('markDone');
+      const courseProgress = document.getElementById('courseProgress');
+      const progressText = document.getElementById('progressText');
+
+      // render modules
+      modules.forEach(m => {
+        const li = document.createElement('li');
+        li.className = 'module-item';
+        li.innerHTML = `<button class="linkish" data-id="${m.id}">${m.title}</button>`;
+        modulesList.appendChild(li);
+      });
+
+      // load saved progress
+      const progress = JSON.parse(localStorage.getItem('courseProgress') || '{}');
+
+      function updateProgressUI() {
+        const doneCount = Object.keys(progress).filter(k => progress[k] === true).length;
+        const pct = Math.round((doneCount / modules.length) * 100);
+        courseProgress.style.width = pct + '%';
+        progressText.textContent = pct + '% ավարտված';
+      }
+      updateProgressUI();
+
+      modulesList.addEventListener('click', e => {
+        if (e.target.matches('button.linkish')) {
+          const id = +e.target.dataset.id;
+          const mod = modules.find(x => x.id === id);
+          mTitle.textContent = mod.title;
+          mDesc.textContent = mod.desc;
+          mVideo.src = mod.video;
+          markDone.dataset.module = id;
+        }
+      });
+
+      markDone.addEventListener('click', () => {
+        const id = markDone.dataset.module || '1';
+        progress[id] = true;
+        localStorage.setItem('courseProgress', JSON.stringify(progress));
+        updateProgressUI();
+        alert('Մոդուլը նշված է որպես «ավարտված»։');
+      });
+
+      // default select first
+      document.querySelector('.module-list button')?.click();
+    });
+  </script>
+</body>
+</html>

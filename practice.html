@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Գործնական — Տեղեկատվական անվտանգության</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Գործնական</a>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h2>Գործնական առաջադրանք (օրինակ)</h2>
+    <div class="card">
+      <p>Առաջադրանք։ Ստեղծեք պահուստավորման ծրագիր՝ պարզ (دل) և գրանցեք աշխատանքը։</p>
+      <p>Քայլեր՝</p>
+      <ol>
+        <li>Սահմանեք ինչը պետք է պահպանվի։</li>
+        <li>Վերբեռնել և պահպանել ֆայլ (որը ներկայացված չէ այստեղ)`</li>
+        <li>Մեկնաբանություն, թե ինչպես եք ապահովում գաղտնիությունը (encryption)</li>
+      </ol>
+
+      <label>Ձեր արդյունքի նոթ — ֆայլի անվանում<textarea id="practiceNote"></textarea></label>
+      <button class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
+      <div id="practiceMsg" class="muted"></div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('savePractice').addEventListener('click', ()=>{
+      const note = document.getElementById('practiceNote').value.trim();
+      let saved = JSON.parse(localStorage.getItem('practices') || '[]');
+      saved.push({date:new Date().toISOString(), note});
+      localStorage.setItem('practices', JSON.stringify(saved));
+      document.getElementById('practiceMsg').textContent = 'Արդյունքը պահպանվեց։';
+    });
+  </script>
+</body>
+</html>

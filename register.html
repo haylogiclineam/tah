@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Գրանցում — Տեղեկատվական անվտանգության</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Տեղեկատվական անվտանգության</a>
+    </div>
+  </header>
+
+  <main class="container content auth">
+    <div class="card auth-card">
+      <h2>Գրանցում</h2>
+      <form id="regForm">
+        <label>Անուն<input id="name" required></label>
+        <label>Էլ. հասցե<input type="email" id="email" required></label>
+        <label>Գաղտնաբառ<input type="password" id="password" required></label>
+        <div class="row">
+          <button class="btn primary" type="submit">Գրանցվել</button>
+          <a href="login.html" class="btn">Մուտք</a>
+        </div>
+      </form>
+      <div id="regMsg" class="muted"></div>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('regForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const pwd = document.getElementById('password').value;
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
+
+      if (users.find(u=>u.email === email)) {
+        document.getElementById('regMsg').textContent = 'Այս էլ․ հասցեն արդեն գրանցված է։';
+        return;
+      }
+
+      users.push({name, email, password: pwd});
+      localStorage.setItem('users', JSON.stringify(users));
+      localStorage.setItem('currentUser', JSON.stringify({email, name}));
+      document.getElementById('regMsg').textContent = 'Գրանցումը հաջողվեց։ Տարվեք դեպի դասընթաց։';
+      setTimeout(()=> location.href='course.html', 800);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Թեստ — Տեղեկատվական անվտանգության հիմունքներ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      background: #f6f8fc;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .quiz-container {
+      background: white;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .quiz-header h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .progress {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin: 15px 0 25px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 8px;
+      width: 0%;
+      background: #0b62d1;
+      transition: width 0.3s ease;
+    }
+    .question {
+      margin-bottom: 30px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .option {
+      margin-bottom: 8px;
+    }
+    .option input { margin-right: 8px; }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0b62d1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #084ca3; }
+    .result {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .certificate-btn {
+      display: none;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="container-logo-block">
+        <img src="assets/images/logo.png" alt="">
+      </div>
+      <nav class="topnav">
+        <a href="index.html">Գլխավոր</a>
+        <a href="course.html">Դասընթաց</a>
+        <a href="resources.html">Ռեսուրսներ</a>
+        <a href="contact.html">Կապ մեզ հետ</a>
+        <a href="login.html" class="btn small login-btn">Մուտք / Գրանցվել</a>
+        <span class="user-greeting" style="display:none;margin-left:12px;color:#0b62d1;"></span>
+        <button class="btn primary small logout-btn" style="display:none;margin-left:8px;">Դուրս գալ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <h1>Թեստ․ Տեղեկատվական անվտանգության հիմունքներ</h1>
+        <p>Պատասխանեք հարցերին և ստացեք ձեր գնահատականը։</p>
+        <div class="progress"><div class="progress-bar"></div></div>
+      </div>
+
+      <form id="quizForm">
+        <div class="question">
+          <h3>1. Ի՞նչ է գաղտնաբառի հիմնական նպատակը։</h3>
+          <label class="option"><input type="radio" name="q1" value="a"> Հեշտ մուտք ապահովել համակարգ</label><br>
+          <label class="option"><input type="radio" name="q1" value="b"> Պաշտպանել օգտատիրոջ տվյալները</label><br>
+          <label class="option"><input type="radio" name="q1" value="c"> Տեղեկություններ տարածել ընկերության մասին</label>
+        </div>
+
+        <div class="question">
+          <h3>2. Ո՞րն է անվտանգ գաղտնաբառի օրինակ։</h3>
+          <label class="option"><input type="radio" name="q2" value="a"> 123456</label><br>
+          <label class="option"><input type="radio" name="q2" value="b"> qwerty</label><br>
+          <label class="option"><input type="radio" name="q2" value="c"> 7x!pL@2024</label>
+        </div>
+
+        <div class="question">
+          <h3>3. Ինչ պետք է անեք, եթե կասկածում եք, որ ձեր հաշիվը կոտրվել է։</h3>
+          <label class="option"><input type="radio" name="q3" value="a"> Անտեսել և շարունակել օգտագործել</label><br>
+          <label class="option"><input type="radio" name="q3" value="b"> Փոխել գաղտնաբառը և տեղեկացնել ադմինին</label><br>
+          <label class="option"><input type="radio" name="q3" value="c"> Հեռացնել բոլոր հաղորդագրությունները</label>
+        </div>
+
+        <button type="submit" class="btn">Ավարտել թեստը</button>
+      </form>
+
+      <div class="result" id="resultBox"></div>
+      <button id="certificateBtn" class="btn certificate-btn">Ներբեռնել վկայականը (PDF)</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Տեղեկատվական անվտանգության հիմունքներ </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    const quizForm = document.getElementById('quizForm');
+    const resultBox = document.getElementById('resultBox');
+    const progressBar = document.querySelector('.progress-bar');
+    const certBtn = document.getElementById('certificateBtn');
+
+    quizForm.addEventListener('change', ()=>{
+      const total = quizForm.querySelectorAll('.question').length;
+      const answered = quizForm.querySelectorAll('input:checked').length;
+      progressBar.style.width = ((answered/total)*100) + '%';
+    });
+
+    quizForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      let score = 0;
+      const answers = { q1: 'b', q2: 'c', q3: 'b' };
+      for (let key in answers) {
+        const userAns = quizForm.elements[key].value;
+        if (userAns === answers[key]) score++;
+      }
+
+      const cur = localStorage.getItem('currentUser');
+      let userName = 'User';
+      if (cur) {
+        try {
+          const user = JSON.parse(cur);
+          userName = user.name || user.email || 'User';
+        } catch {}
+      }
+
+      resultBox.style.display = 'block';
+      if (score >= 2) {
+        resultBox.textContent = `Շնորհավորում ենք, ${userName}! Դուք հավաքեցիք ${score}/3 և հաջողությամբ անցաք թեստը։`;
+        certBtn.style.display = 'inline-block';
+      } else {
+        resultBox.textContent = `Դուք հավաքեցիք ${score}/3 միավոր։ Փորձեք կրկին։`;
+      }
+
+      quizForm.querySelector('button').disabled = true;
+    });
+
+    // certificate generation (ENGLISH VERSION)
+    certBtn.addEventListener('click', ()=>{
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const cur = localStorage.getItem('currentUser');
+      let userName = 'User';
+      if (cur) {
+        try {
+          const user = JSON.parse(cur);
+          userName = user.name || user.email || 'User';
+        } catch {}
+      }
+
+      doc.setFontSize(22);
+      doc.text("Certificate of Completion", 60, 40);
+      doc.setFontSize(16);
+      doc.text(`This certifies that`, 85, 60);
+      doc.setFontSize(18);
+      doc.text(userName, 85, 75);
+      doc.setFontSize(14);
+      doc.text("has successfully completed the", 70, 90);
+      doc.text("‘Cybersecurity Fundamentals’ Quiz.", 60, 105);
+      doc.setFontSize(12);
+      doc.text(`Date of Completion: ${new Date().toLocaleDateString('en-GB')}`, 60, 125);
+      doc.text("Issued by: HayLogic Line", 60, 140);
+      doc.text("www.hl.am", 60, 155);
+
+      doc.save(`Certificate_${userName}.pdf`);
+    });
+  </script>
+</body>
+</html>

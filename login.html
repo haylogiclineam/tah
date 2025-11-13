@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Մուտք — Տեղեկատվական անվտանգության</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Տեղեկատվական անվտանգության</a>
+    </div>
+  </header>
+
+  <main class="container content auth">
+    <div class="card auth-card">
+      <h2>Մուտք</h2>
+      <form id="loginForm">
+        <label>Էլ. հասցե<input type="email" id="email" required></label>
+        <label>Գաղտնաբառ<input type="password" id="password" required></label>
+        <div class="row">
+          <button class="btn primary" type="submit">Մուտք</button>
+          <a href="register.html" class="btn">Գրանցվել</a>
+        </div>
+      </form>
+      <div id="loginMsg" class="muted"></div>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const pwd = document.getElementById('password').value;
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email && u.password === pwd);
+      const msg = document.getElementById('loginMsg');
+      if (user) {
+        localStorage.setItem('currentUser', JSON.stringify({email:user.email, name:user.name}));
+        msg.textContent = 'Ինքնության հաստատում՝ հաջողվեց։ Տարվեք դեպի դասընթաց։';
+        setTimeout(()=>{ location.href = 'course.html'; }, 800);
+      } else {
+        msg.textContent = 'Սխալ էլ․ հասցե կամ գաղտնաբառ։ Խնդրում ենք փորձել կրկին կամ գրանցվել։';
+      }
+    });
+  </script>
+</body>
+</html>

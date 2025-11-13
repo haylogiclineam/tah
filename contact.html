@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Կապ մեզ հետ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+
+    #contactForm label{ display:block; margin:12px 0 6px; font-weight:600; }
+     #contactForm input, textarea{
+      width:100%; padding:10px 12px; border-radius:6px; border:1px solid #ccc; font-size:15px;
+    }
+     #contactForm textarea{ height:120px; resize:none; }
+     #contactForm .btn{ margin-top:20px; background:#0057d8; border:0; padding:12px 18px; color:#fff;
+      font-size:16px; cursor:pointer; border-radius:6px; width:100%; }
+     #contactForm .btn:hover{ background:#003fa1; }
+     #contactForm .success{ margin-top:15px; color:green; font-weight:700; }
+     #contactForm .error{ color:red; font-size:14px; margin-top:4px; }
+  </style>
+</head>
+
+<body>
+    <header class="site-header">
+    <div>
+      <div class="container">
+        <div class="container-logo-block">
+          <img src="assets/images/logo.png" alt="">
+        </div>
+        <nav class="topnav">
+          <a href="index.html">Գլխավոր</a>
+          <a href="about.html">Մեր մասին</a>
+          <a href="course.html">Դասընթաց</a>
+          <a href="resources.html">Ռեսուրսներ</a>
+          <a href="contact.html">Կապ մեզ հետ</a>
+          <a href="login.html" class="btn primary small">Մուտք / Գրանցվել</a>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+  <div class="container">
+    <h2>Կապ մեզ հետ</h2>
+
+    <form id="contactForm">
+      <label>Անուն *</label>
+      <input type="text" id="name">
+
+      <label>Էլ․ հասցե *</label>
+      <input type="email" id="email">
+
+      <label>Հաղորդագրություն *</label>
+      <textarea id="message"></textarea>
+
+      <button class="btn" type="submit">Ուղարկել</button>
+    </form>
+
+    <div id="msgResponse"></div>
+  </div>
+ <script src="assets/js/app.js"></script>
+<script>
+  
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const msg = document.getElementById('message').value.trim();
+  const resp = document.getElementById('msgResponse');
+
+  if(!name || !email || !msg){
+    resp.innerHTML = '<p class="error">Խնդրում ենք լրացնել բոլոր պարտադիր դաշտերը։</p>';
+    return;
+  }
+
+  // ❗ եթե ունեք backend ․ այստեղ կուղարկվի fetch-ը սերվեր
+  console.log("Message sent:", {name, email, msg});
+
+  resp.innerHTML = '<p class="success">✅ Հաղորդագրությունը հաջողությամբ ուղարկվեց!</p>';
+  document.getElementById('contactForm').reset();
+});
+</script>
+
+</body>
+</html>
