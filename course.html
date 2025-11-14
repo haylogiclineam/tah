@@ -28,13 +28,16 @@
     </div>
   </header>
 
+  <div class="main-block-course">
+    <h2>Դասընթաց</h2>
+    <div class="course-banner-block"></div>
+  </div>
   <main class="container content course-page">
-    <h2>Դասընթաց (Course)</h2>
-    <p class="muted">Ընդհանուր մոդուլների ցանկը՝ ընտրելու համար</p>
-
+    
     <div class="two-col">
-      <aside class="sidebar">
+      <aside class="sidebar sidebar-modules-block">
         <h4>Մոդուլներ</h4>
+        <p class="muted">Ընդհանուր մոդուլների ցանկը՝ ընտրելու համար</p>
         <ul id="modulesList" class="module-list">
           <!-- JS populate -->
         </ul>
@@ -76,8 +79,8 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025</p>
+    <div class="container container-footer-block">
+      <p>© 2025 Տեղեկատվական անվտանգության հիմունքներ </p>
     </div>
   </footer>
 
@@ -86,10 +89,10 @@
     // Course-specific setup
     document.addEventListener('DOMContentLoaded', () => {
       const modules = [
-        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k'},
-        {id:2, title:'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն', desc:'Մոդելներ, սպառնալիքներ և վտանգներ', video:'https://www.youtube.com/embed/6_b7RDuLwcI'},
-        {id:3, title:'Մոդուլ 3. Պաշտպանության եղանակներ և մեթոդներ', desc:'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում', video:'https://www.youtube.com/embed/3fumBcKC6RE'},
-        {id:4, title:'Մոդուլ 4. Ժամանակակից մեթոդներ', desc:'Մոդեռն միջոցներ և պրակտիկ կիրառումներ', video:'https://www.youtube.com/embed/V-_O7nl0Ii0'}
+        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k', pdf: "assets/resources/Հիմնահարցեր.pdf"},
+        {id:2, title:'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն', desc:'Մոդելներ, սպառնալիքներ և վտանգներ', video:'https://www.youtube.com/embed/6_b7RDuLwcI', pdf: "assets/resources/Տեղեկատվական անվտանգության սպառնալիքների վերլուծություն.pdf"},
+        {id:3, title:'Մոդուլ 3. Պաշտպանության եղանակներ և մեթոդներ', desc:'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում', video:'https://www.youtube.com/embed/3fumBcKC6RE', pdf: "assets/resources/Տեղեկատվական պաշտպանության եղանակները և մեթոդները.pdf"},
+        {id:4, title:'Մոդուլ 4. Ժամանակակից մեթոդներ', desc:'Մոդեռն միջոցներ և պրակտիկ կիրառումներ', video:'https://www.youtube.com/embed/V-_O7nl0Ii0', pdf: "assets/resources/Հիմնահարցեր.pdf"}
       ];
 
       const modulesList = document.getElementById('modulesList');
@@ -125,8 +128,11 @@
           const mod = modules.find(x => x.id === id);
           mTitle.textContent = mod.title;
           mDesc.textContent = mod.desc;
-          mVideo.src = mod.video;
+          if (mVideo) {
+            mVideo.src = mod.video;
+          }
           markDone.dataset.module = id;
+          window.open(mod.pdf, "_blank");
         }
       });
 
