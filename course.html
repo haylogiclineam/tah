@@ -68,7 +68,7 @@
           </div>
 
           <div class="card-actions">
-            <a id="openPractice" href="practice.html" class="btn">Գործնական առաջադրանք</a>
+            <a id="openPractice" href="#" class="btn">Գործնական առաջադրանք</a>
             <a id="openQuiz" href="quiz.html" class="btn">Թեստ</a>
             <button id="markDone" class="btn">Մարկ անել՝ ավարտված</button>
           </div>
@@ -89,7 +89,7 @@
     // Course-specific setup
     document.addEventListener('DOMContentLoaded', () => {
       const modules = [
-        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k', docx: "assets/resources/Գործնական առաջադրանք_1.docx"},
+        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k', pdf: "assets/resources/Հիմնահարցեր.pdf"},
         {id:2, title:'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն', desc:'Մոդելներ, սպառնալիքներ և վտանգներ', video:'https://www.youtube.com/embed/6_b7RDuLwcI', pdf: "assets/resources/Տեղեկատվական անվտանգության սպառնալիքների վերլուծություն.pdf"},
         {id:3, title:'Մոդուլ 3. Պաշտպանության եղանակներ և մեթոդներ', desc:'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում', video:'https://www.youtube.com/embed/3fumBcKC6RE', pdf: "assets/resources/Տեղեկատվական պաշտպանության եղանակները և մեթոդները.pdf"},
         {id:4, title:'Մոդուլ 4. Ժամանակակից մեթոդներ', desc:'Մոդեռն միջոցներ և պրակտիկ կիրառումներ', video:'https://www.youtube.com/embed/V-_O7nl0Ii0', pdf: "assets/resources/Հիմնահարցեր.pdf"}
@@ -98,6 +98,7 @@
       const modulesList = document.getElementById('modulesList');
       const mTitle = document.getElementById('mTitle');
       const mDesc = document.getElementById('mDesc');
+      const openPractice = document.getElementById('openPractice');
       const mVideo = document.getElementById('mVideo');
       const markDone = document.getElementById('markDone');
       const courseProgress = document.getElementById('courseProgress');
@@ -122,6 +123,12 @@
       }
       updateProgressUI();
 
+      openPractice.addEventListener('click', e => {
+        if (mTitle.textContent === "Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը") {
+          window.open('practice.html', '_blank');
+        }
+      })
+
       modulesList.addEventListener('click', e => {
         if (e.target.matches('button.linkish')) {
           const id = +e.target.dataset.id;
@@ -132,16 +139,7 @@
             mVideo.src = mod.video;
           }
           markDone.dataset.module = id;
-          if (mod.docx) {
-            const url = window.location.origin + "/" + mod.docx;
-            window.open(
-              "https://docs.google.com/gview?url=" + url + "&embedded=true",
-              "_blank"
-            );
-          } 
-          else if (mod.pdf) {
-            window.open(mod.pdf, "_blank");
-          }
+          window.open(mod.pdf, "_blank");
         }
       });
 

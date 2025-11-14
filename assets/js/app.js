@@ -8,6 +8,8 @@
 
     if (logoBlock) {
       logoBlock.addEventListener('click', () => {
+        console.log("Sdf");
+        
         window.location.href = 'index.html';
       });
     }
