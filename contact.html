@@ -41,8 +41,12 @@
 
     </div>
   </header>
-  <div class="container">
-    <h2>Կապ մեզ հետ</h2>
+  <main>
+    <div class="main-block-course">
+      <h2>Կապ մեզ հետ</h2>
+      <div class="contact-banner-block"></div>
+    </div>
+  <div class="container contact-us-container">
 
     <form id="contactForm">
       <label>Անուն *</label>
@@ -59,6 +63,13 @@
 
     <div id="msgResponse"></div>
   </div>
+</main>
+<footer class="site-footer">
+  <div class="container container-footer-block">
+    <p>© 2025 Տեղեկատվական անվտանգության հիմունքներ </p>
+  </div>
+</footer>
+
  <script src="assets/js/app.js"></script>
 <script>
   
@@ -75,7 +86,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
     return;
   }
 
-  // ❗ եթե ունեք backend ․ այստեղ կուղարկվի fetch-ը սերվեր
   console.log("Message sent:", {name, email, msg});
 
   resp.innerHTML = '<p class="success">✅ Հաղորդագրությունը հաջողությամբ ուղարկվեց!</p>';

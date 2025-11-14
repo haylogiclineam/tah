@@ -118,6 +118,16 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   border-radius: 12px;
 }
 
+.resource-banner-block {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/banner-recource.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  background-position: center;
+}
+
 .container-home-page {
   flex-direction: column;
 }
@@ -133,6 +143,16 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   width: 100%;
   height: 300px;
   background-image: url("../images/info.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.contact-banner-block {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/contact-us.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -170,6 +190,10 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   justify-content: center;
 }
 
+.container-resources-block {
+  align-items: flex-start;
+}
+
 body, html {
   height: 100%;
 }
@@ -181,5 +205,19 @@ body, html {
 }
 
 main {
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 172px);
+}
+
+#contactForm {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0 50px 0;
+}
+
+#contactForm input {
+  outline: none;
+}
+
+.contact-us-container {
+  justify-content: center;
 }

@@ -89,7 +89,7 @@
     // Course-specific setup
     document.addEventListener('DOMContentLoaded', () => {
       const modules = [
-        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k', pdf: "assets/resources/Հիմնահարցեր.pdf"},
+        {id:1, title:'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը', desc:'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն', video:'https://www.youtube.com/embed/UNzJY0O2K0k', docx: "assets/resources/Գործնական առաջադրանք_1.docx"},
         {id:2, title:'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն', desc:'Մոդելներ, սպառնալիքներ և վտանգներ', video:'https://www.youtube.com/embed/6_b7RDuLwcI', pdf: "assets/resources/Տեղեկատվական անվտանգության սպառնալիքների վերլուծություն.pdf"},
         {id:3, title:'Մոդուլ 3. Պաշտպանության եղանակներ և մեթոդներ', desc:'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում', video:'https://www.youtube.com/embed/3fumBcKC6RE', pdf: "assets/resources/Տեղեկատվական պաշտպանության եղանակները և մեթոդները.pdf"},
         {id:4, title:'Մոդուլ 4. Ժամանակակից մեթոդներ', desc:'Մոդեռն միջոցներ և պրակտիկ կիրառումներ', video:'https://www.youtube.com/embed/V-_O7nl0Ii0', pdf: "assets/resources/Հիմնահարցեր.pdf"}
@@ -132,7 +132,16 @@
             mVideo.src = mod.video;
           }
           markDone.dataset.module = id;
-          window.open(mod.pdf, "_blank");
+          if (mod.docx) {
+            const url = window.location.origin + "/" + mod.docx;
+            window.open(
+              "https://docs.google.com/gview?url=" + url + "&embedded=true",
+              "_blank"
+            );
+          } 
+          else if (mod.pdf) {
+            window.open(mod.pdf, "_blank");
+          }
         }
       });
 
