@@ -1,0 +1,146 @@
+  /* ------------ MAIN BLOCK ------------ */
+  .main-block-course {
+    width: 100%;
+    background: linear-gradient(135deg, #18596a, #15222d);
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+  }
+
+  .course-main {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .sidebar-modules-block {
+    width: unset;
+  }
+  
+  .main-block-course h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .course-banner-block {
+    width: 120px;
+    height: 4px;
+    background: #fff;
+    margin: auto;
+    border-radius: 4px;
+  }
+  
+  /* ------------ PAGE GRID ------------ */
+  .container.content {
+    width: 90%;
+    max-width: 1250px;
+    margin: 50px auto;
+  }
+  
+  .two-col {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+  }
+  
+  /* ------------ SIDEBAR ------------ */
+  .sidebar {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+  
+  .sidebar h4 {
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .sidebar .muted {
+    color: #666;
+    margin-bottom: 22px;
+    font-size: 14px;
+  }
+  
+  .module-list {
+    list-style: none;
+  }
+  
+  .module-item {
+    margin-bottom: 14px;
+  }
+  
+  .linkish {
+    background: #eef2f6;
+    padding: 12px 14px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  
+  .linkish:hover {
+    background: #d4e4ef;
+  }
+  
+  .linkish.active {
+    background: #18596a;
+    color: #fff;
+  }
+  
+  /* ------------ CONTENT CARD ------------ */
+  .card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+  
+  .card h3 {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  
+  .card .muted {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  .media video {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  }
+  
+  .module-text {
+    margin-bottom: 30px;
+    color: #333;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #18596a;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.25s;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .btn:hover {
+    background: #21788c;
+  }

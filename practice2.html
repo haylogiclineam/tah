@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Գործնական — Տեղեկատվական անվտանգության</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header container">
+    <div class="container-logo-block">
+      <img src="assets/images/logo.png" alt="">
+    </div>
+  </header>
+
+  <div class="main-block-course">
+    <h2>Գործնական առաջադրանք</h2>
+    <div class="practice-banner-block"></div>
+  </div>
+
+  <main class="container content">
+    <div class="card">
+
+      📘 Առաջադրանքի նկարագրություն <br/> <br/>
+      Դուք աշխատում եք փոքր կազմակերպությունում, որի համակարգիչները միացված են ընդհանուր ցանցի։ Վերջին շրջանում նկատվել են՝ <br/>
+      &nbsp;&nbsp;&nbsp;  • չարտոնված մուտքի փորձեր,<br/>
+      &nbsp;&nbsp;&nbsp;  • ֆայլերի փոփոխություններ,<br/>
+      &nbsp;&nbsp;&nbsp;  • դանդաղ աշխատանք և ցանցային խափանումներ։<br/> <br/>
+      Ձեր խնդիրն է՝ <br/> <br/> վերլուծել իրավիճակը և առաջարկել տեղեկատվական անվտանգության միջոցառումների համակարգ՝ հիմնվելով սույն դասընթացի նյութերի վրա։ <br/> <br/>
+
+🧠 Կատարելիք քայլեր <br/> <br/>
+    1. Ռիսկերի բացահայտում <br/>
+    &nbsp;&nbsp;&nbsp;  ◦ Նշեք առնվազն 3 հիմնական սպառնալիք (օր.՝ չարտոնված մուտք, վնասաբեր ծրագրեր, տվյալների կորուստ)։ <br/>
+    &nbsp;&nbsp;&nbsp;    ◦ Բացատրեք, թե ինչ հետևանք կարող են ունենալ այդ սպառնալիքները։ <br/>
+    2. Գաղտնիության ապահովում <br/>
+    &nbsp;&nbsp;&nbsp;    ◦ Առաջարկեք առնվազն 2 մեթոդ՝ տեղեկատվության գաղտնիությունը պահպանելու համար (օր.՝ գաղտնաբառերի քաղաքականություն, կոդավորում, օգտագործողների նույնականացում)։ <br/>
+    3. Ամբողջականության պաշտպանություն <br/>
+    &nbsp;&nbsp;&nbsp;    ◦ Ներկայացրեք մեկ տեխնիկական և մեկ կազմակերպչական միջոց, որոնք ապահովում են տվյալների ամբողջականությունը։ <br/>
+    4. Մատչելիության ապահովում <br/>
+    &nbsp;&nbsp;&nbsp;    ◦ Ինչպես կկանխեք տվյալների անհասանելիությունը համակարգի խափանման կամ հարձակման դեպքում։ <br/>
+    5. Մուտքի վերահսկում <br/>
+    &nbsp;&nbsp;&nbsp;    ◦ Առաջարկեք մուտքի վերահսկման պարզ մոդել՝ ըստ օգտատերերի իրավունքների (օր.՝ ադմինիստրատոր, աշխատակից, այցելու)։
+<br/><br/>
+🧾 Հանձնարարության ձևաչափ<br/><br/>
+&nbsp;&nbsp;&nbsp;  • Տեքստային զեկույց՝ 1–2 էջ, Word կամ PDF ձևաչափով։<br/>
+&nbsp;&nbsp;&nbsp;  • Ներառել բաժիններ՝<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ◦ Ներածություն<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ◦ Վերլուծություն<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ◦ Առաջարկություններ<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ◦ Եզրակացություն
+
+
+      <label>Ձեր արդյունքի նոթ — ֆայլի անվանում<textarea id="practiceNote"></textarea></label>
+      <button class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
+      <div id="practiceMsg" class="muted"></div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('savePractice').addEventListener('click', ()=>{
+      const note = document.getElementById('practiceNote').value.trim();
+      let saved = JSON.parse(localStorage.getItem('practices') || '[]');
+      saved.push({date:new Date().toISOString(), note});
+      localStorage.setItem('practices', JSON.stringify(saved));
+      document.getElementById('practiceMsg').textContent = 'Արդյունքը պահպանվեց։';
+    });
+  </script>
+</body>
+</html>
