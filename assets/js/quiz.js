@@ -53,6 +53,12 @@
         block.innerHTML = html;
         quizForm.appendChild(block);
       });
+
+      const submitBtn = document.createElement("button");
+        submitBtn.type = "submit";
+        submitBtn.textContent = "Ավարտել թեստը";
+        submitBtn.className = "btn";
+        quizForm.appendChild(submitBtn);
   
       activateEvents(data);
     }
