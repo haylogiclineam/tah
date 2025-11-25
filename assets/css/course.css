@@ -144,3 +144,32 @@
   .btn:hover {
     background: #21788c;
   }
+
+  /* section buttons */
+.sections-control {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .section-btn {
+    background: #eef6f8;
+    border: 1px solid #d7e7ea;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.18s;
+  }
+  
+  .section-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(15,40,60,0.06);
+  }
+  
+  .section-btn.active {
+    background: #18596a;
+    color: #fff;
+    border-color: transparent;
+  }
+  
