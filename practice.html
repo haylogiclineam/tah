@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Գործնական — Տեղեկատվական անվտանգության</title>
+  <title>Գործնական — Տեղեկատվական անվտանգություն</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <header class="site-header container">
     <div class="container-logo-block">
       <img src="assets/images/logo.png" alt="">
@@ -15,92 +16,67 @@
   </header>
 
   <div class="main-block-course">
-    <h2>Գործնական առաջադրանք</h2>
+    <h2 id="practice-title">Գործնական առաջադրանք</h2>
     <div class="practice-banner-block"></div>
   </div>
 
   <main class="container content">
-    <div class="card">
-      📘 Գործնական - Լաբորատոր աշխատանք 1 <br/><br/>
-      Վերնագիր՝ Տվյալների գաղտնագիտություն, անվտանգություն և խոցելիությունների հայտնաբերում <br/><br/>
-      Նպատակ: <br/>
-      Ուսանողը պետք է գործնականորեն ուսումնասիրի՝<br/>
-      &nbsp;&nbsp;&nbsp;• Գաղտնիության, ամբողջականության և հասանելիության ապահովման մեթոդները,<br/>
-      &nbsp;&nbsp;&nbsp;• Տեղեկատվական համակարգերում խոցելիությունների որոնումը,<br/>
-      &nbsp;&nbsp;&nbsp;• Մուտքի վերահսկման հիմնական գործիքները։<br/><br/>
-      
-      Պարտադիր պահանջներ: <br/><br/>
-      Ա. Տեղեկատվության պաշտպանություն <br/>
-      1. Ստեղծել նոր տեքստային ֆայլ (security_test.txt) և պահպանել համակարգչում։<br/>
-      2. Գաղտնագրել ֆայլը մեկ ծրագրով (օր. VeraCrypt, Cryptomator, 7-Zip AES-256)<br/>
-      3. Ֆայլի չափերը և checksum-ը (MD5 կամ SHA256) ստուգել նախ և հետո։<br/><br/>
-      Ուսանողը պետք է փաստաթղթում ներկայացնի:<br/>
-      &nbsp;&nbsp;&nbsp;• Գաղտնագրման քայլերը screenshot-ներով,<br/>
-      &nbsp;&nbsp;&nbsp;• Ստեղծված hash արժեքները մինչև և հետո,<br/>
-      &nbsp;&nbsp;&nbsp;• Եզրակացություն՝ արդյոք տվյալները փոխվել են։<br/><br/>
-      
-      Բ. Մուտքի վերահսկում <br/>
-      1. Ստեղծել 2 նոր օգտատեր՝ user_test1 և user_test2։<br/>
-      2. Կազմել ֆայլ/թղթապանակ, որը հասանելի կլինի միայն user_test1-ին։<br/>
-      3. Փորձել մուտք գործել այդ թղթապանակ user_test2 օգտատիրոջ կողմից և արձանագրել արդյունքը։<br/><br/>
-      Ներկայացնել:<br/>
-      &nbsp;&nbsp;&nbsp;• Թույլտվությունների կարգավորումների նկարներ,<br/>
-      &nbsp;&nbsp;&nbsp;• Փորձի արդյունքները,<br/>
-      &nbsp;&nbsp;&nbsp;• Եզրակացություն՝ «Ինչպես է աշխատում մուտքի վերահսկումը»։<br/><br/>
-      
-      Գ. Անվտանգության խոցելիությունների հայտնաբերում <br/>
-      1. Օգտագործել համակարգչում ցանկացած խոցելիության սկաներ։<br/>
-      2. Անել համակարգչի արագ scan։<br/>
-      3. Արդյունքները արտահանել PDF/նկարների ձևաչափով։<br/><br/>
-      Ներկայացնել:<br/>
-      &nbsp;&nbsp;&nbsp;• Հայտնաբերված ռիսկերը,<br/>
-      &nbsp;&nbsp;&nbsp;• Խոցելիությունների տեսակը,<br/>
-      &nbsp;&nbsp;&nbsp;• Խորհուրդներ՝ ինչպես վերացնել դրանք։<br/><br/>
-      
-      Եզրակացություն ուսանողի կողմից: <br/>
-      &nbsp;&nbsp;&nbsp;• Ինչը սովորեց,<br/>
-      &nbsp;&nbsp;&nbsp;• Որ մեթոդները արդյունավետ էին,<br/>
-      &nbsp;&nbsp;&nbsp;• Ինչպիսի խնդիրներ հանդիպեց,<br/>
-      &nbsp;&nbsp;&nbsp;• Ինչպես կկիրառի գիտելիքը իրական կյանքում։<br/><br/>
-      
-      📘 Գործնական – Լաբորատոր աշխատանք 2 <br/><br/>
-      Դուք աշխատում եք փոքր կազմակերպությունում, որի համակարգիչները միացված են ընդհանուր ցանցի։ Վերջին շրջանում նկատվել են՝<br/>
-      &nbsp;&nbsp;&nbsp;• չարտոնված մուտքի փորձեր,<br/>
-      &nbsp;&nbsp;&nbsp;• ֆայլերի փոփոխություններ,<br/>
-      &nbsp;&nbsp;&nbsp;• դանդաղ աշխատանք և ցանցային խափանումներ։<br/><br/>
-      Ձեր խնդիրն է՝ վերլուծել իրավիճակը և առաջարկել տեղեկատվական անվտանգության միջոցառումների համակարգ՝ հիմնվելով դասընթացի նյութերի վրա։<br/><br/>
-      
-      🧠 Կատարելիք քայլեր <br/><br/>
-      1. Ռիսկերի բացահայտում<br/>
-      &nbsp;&nbsp;&nbsp;• Նշեք առնվազն 3 հիմնական սպառնալիք (օր.՝ չարտոնված մուտք, վնասաբեր ծրագրեր, տվյալների կորուստ)։<br/>
-      &nbsp;&nbsp;&nbsp;• Բացատրեք, թե ինչ հետևանք կարող են ունենալ այդ սպառնալիքները։<br/>
-      2. Գաղտնիության ապահովում<br/>
-      &nbsp;&nbsp;&nbsp;• Առաջարկեք առնվազն 2 մեթոդ՝ տեղեկատվության գաղտնիությունը պահպանելու համար։<br/>
-      3. Ամբողջականության պաշտպանություն<br/>
-      &nbsp;&nbsp;&nbsp;• Ներկայացրեք մեկ տեխնիկական և մեկ կազմակերպչական միջոց, որոնք ապահովում են տվյալների ամբողջականությունը։<br/>
-      4. Մատչելիության ապահովում<br/>
-      &nbsp;&nbsp;&nbsp;• Ինչպես կկանխեք տվյալների անհասանելիությունը համակարգի խափանման կամ հարձակման դեպքում։<br/>
-      5. Մուտքի վերահսկում<br/>
-      &nbsp;&nbsp;&nbsp;• Առաջարկեք մուտքի վերահսկման պարզ մոդել՝ ըստ օգտատերերի իրավունքների (օր.՝ ադմինիստրատոր, աշխատակից, այցելու)։<br/><br/>
-      
-      🧾 Հանձնարարության ձևաչափ<br/><br/>
-      &nbsp;&nbsp;&nbsp;• Տեքստային զեկույց՝ 1–2 էջ, Word կամ PDF ձևաչափով։<br/>
-      &nbsp;&nbsp;&nbsp;• Ներառել բաժիններ՝ Ներածություն, Վերլուծություն, Առաջարկություններ, Եզրակացություն<br/><br/>
-      
-      <label>Ձեր արդյունքի նոթ — ֆայլի անվանում<textarea id="practiceNote"></textarea></label>
-      <button class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
-      <div id="practiceMsg" class="muted"></div>
+    <div id="practice-content" class="card">
+      Բեռնում է...
     </div>
   </main>
 
-  <script>
-    document.getElementById('savePractice').addEventListener('click', ()=>{
-      const note = document.getElementById('practiceNote').value.trim();
-      let saved = JSON.parse(localStorage.getItem('practices') || '[]');
-      saved.push({date:new Date().toISOString(), note});
-      localStorage.setItem('practices', JSON.stringify(saved));
-      document.getElementById('practiceMsg').textContent = 'Արդյունքը պահպանվեց։';
+<script>
+  const url = new URLSearchParams(window.location.search);
+  const moduleId = url.get("module");
+  const practiceId = url.get("practice");
+
+  fetch("assets/practices/modules.json")
+    .then(res => res.json())
+    .then(modules => {
+      const mod = modules.find(m => m.id == moduleId);
+      if (!mod) {
+        document.getElementById('practice-content').innerHTML = "<p>Մոդուլը չի գտնվել...</p>";
+        return;
+      }
+
+      const practice = mod.practices.find(p => p.id == practiceId);
+      if (!practice) {
+        document.getElementById('practice-content').innerHTML = "<p>Առաջադրանքը չի գտնվել...</p>";
+        return;
+      }
+
+      document.getElementById("practice-title").textContent =
+        `Գործնական — ${practice.title}`;
+
+      document.getElementById("practice-content").innerHTML = `
+        ${practice.content}
+
+        <br/><br/>
+        <label>Ձեր արդյունքի նոթ — ֆայլի անվանում
+          <textarea id="practiceNote"></textarea>
+        </label>
+
+        <button class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
+        <div id="practiceMsg" class="muted"></div>
+      `;
+
+      document.getElementById("savePractice").onclick = () => {
+        const note = document.getElementById("practiceNote").value.trim();
+        let saved = JSON.parse(localStorage.getItem("practices") || "[]");
+
+        saved.push({
+          module: moduleId,
+          practice: practiceId,
+          date: new Date().toISOString(),
+          note
+        });
+
+        localStorage.setItem("practices", JSON.stringify(saved));
+        document.getElementById("practiceMsg").textContent = "Արդյունքը պահպանվեց։";
+      };
     });
-  </script>
+</script>
+
 </body>
 </html>

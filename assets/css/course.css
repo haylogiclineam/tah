@@ -173,3 +173,16 @@
     border-color: transparent;
   }
   
+  .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .practices-buttons-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
