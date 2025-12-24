@@ -185,8 +185,8 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
 }
 
 .slides-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
