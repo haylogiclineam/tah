@@ -53,28 +53,54 @@
         ${practice.content}
 
         <br/><br/>
-        <label>Ձեր արդյունքի նոթ — ֆայլի անվանում
-          <textarea id="practiceNote"></textarea>
-        </label>
+        <h3 class="results-title">Արդյունքների տեղադրում</h3>
 
-        <button tton class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
+        <div class="upload-box">
+          <input
+            type="file"
+            id="practiceFile"
+            class="file-hidden"
+            accept=".pdf,.doc,.docx,.zip,.rar,.png,.jpg"
+          >
+
+          <label for="practiceFile" class="upload-btn">
+            📎 Ընտրել ֆայլ
+          </label>
+
+          <div id="fileName" class="file-name">Ֆայլը չի ընտրված</div>
+        </div>
+
+        <button class="btn primary" id="savePractice">Պահպանել արդյունքը</button>
         <div id="practiceMsg" class="muted"></div>
+
       `;
 
       document.getElementById("savePractice").onclick = () => {
-        const note = document.getElementById("practiceNote").value.trim();
-        let saved = JSON.parse(localStorage.getItem("practices") || "[]");
+        const fileInput = document.getElementById("practiceFile");
+        const fileName = document.getElementById("fileName");
 
-        saved.push({
-          module: moduleId,
-          practice: practiceId,
-          date: new Date().toISOString(),
-          note
+        fileInput.addEventListener("change", () => {
+          fileName.textContent = fileInput.files.length
+            ? fileInput.files[0].name
+            : "Ֆայլը չի ընտրված";
         });
 
-        localStorage.setItem("practices", JSON.stringify(saved));
-        document.getElementById("practiceMsg").textContent = "Արդյունքը պահպանվեց։";
-      };
+  let saved = JSON.parse(localStorage.getItem("practices") || "[]");
+
+  saved.push({
+    module: moduleId,
+    practice: practiceId,
+    fileName: file.name,
+    fileType: file.type,
+    date: new Date().toISOString()
+  });
+
+  localStorage.setItem("practices", JSON.stringify(saved));
+
+  document.getElementById("practiceMsg").textContent =
+    "Ֆայլը հաջողությամբ պահպանվեց։";
+};
+
     });
 </script>
 
