@@ -188,9 +188,11 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  width: 100%;
 }
 
 .slide-card {
+  width: 24%;
   background: #ffffff;
   border-radius: 14px;
   padding: 18px 20px;
@@ -320,6 +322,7 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
 
 .container-resources-block {
   align-items: flex-start;
+  flex-direction: column;
 }
 
 body, html {
