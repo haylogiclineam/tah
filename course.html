@@ -778,19 +778,7 @@ const modulesList = document.getElementById('modulesList');
         ${mod.content || ''}
       </div>
 
-      <div class="card-actions">
-        ${mod.practices?.map(p =>
-          `<a href="practice.html?module=${mod.id}&practice=${p.id}" class="btn">
-            ${p.title}
-          </a>`
-        ).join('') || ''}
-
-        ${mod.tests?.map(t =>
-          `<a href="quiz.html?module=${mod.id}&test=${t.id}" class="btn outline">
-            ${t.title}
-          </a>`
-        ).join('') || ''}
-      </div>
+      
     `;
   }
 
