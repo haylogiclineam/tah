@@ -670,56 +670,81 @@ const modulesList = document.getElementById('modulesList');
      ================================================== */
 
   modules.forEach(m => {
-    const li = document.createElement('li');
-    li.className = 'module-item';
+  const li = document.createElement('li');
+  li.className = 'module-item';
 
-    li.innerHTML = `
-      <div class="module-row">
-        <a href="#" class="module-link" data-module="${m.id}">
-          ${m.title}
-        </a>
-      </div>
+  li.innerHTML = `
+    <div class="module-row">
+      <a href="#" class="module-link" data-module="${m.id}">
+        ${m.title}
+      </a>
+    </div>
 
-      ${
-        m.sections?.length
-          ? `<ul class="sections-list">
-              ${m.sections.map(s => `
-                <li class="section-item">
-                  <div class="section-row">
-                    <a href="#"
-                       class="section-link"
-                       data-module="${m.id}"
-                       data-section="${s.id}">
-                      ${s.title}
-                    </a>
-                  </div>
+    ${
+      /* ===== CASE 1: MODULE HAS SECTIONS ===== */
+      m.sections?.length
+        ? `<ul class="sections-list">
+            ${m.sections.map(s => `
+              <li class="section-item">
+                <div class="section-row">
+                  <a href="#"
+                     class="section-link"
+                     data-module="${m.id}"
+                     data-section="${s.id}">
+                    ${s.title}
+                  </a>
+                </div>
 
-                  <ul class="actions-list">
-                    ${s.practices.map(p => `
-                      <li>
-                        <a href="practice.html?module=${m.id}&practice=${p.id}">
-                          🧪 ${p.title}
-                        </a>
-                      </li>
-                    `).join('')}
+                <ul class="actions-list">
+                  ${s.practices.map(p => `
+                    <li>
+                      <a href="practice.html?module=${m.id}&section=${s.id}&practice=${p.id}">
+                        🧪 ${p.title}
+                      </a>
+                    </li>
+                  `).join('')}
 
-                    ${s.tests.map(t => `
-                      <li>
-                        <a href="quiz.html?module=${m.id}&section=theme${s.id}&test=${t.id}">
-                          📝 ${t.title}
-                        </a>
-                      </li>
-                    `).join('')}
-                  </ul>
-                </li>
-              `).join('')}
-            </ul>`
-          : ''
-      }
-    `;
+                  ${s.tests.map(t => `
+                    <li>
+                      <a href="quiz.html?module=${m.id}&section=${s.id}&test=${t.id}">
+                        📝 ${t.title}
+                      </a>
+                    </li>
+                  `).join('')}
+                </ul>
+              </li>
+            `).join('')}
+          </ul>`
+        : ''
+    }
 
-    modulesList.appendChild(li);
-  });
+    ${
+      /* ===== CASE 2: MODULE HAS NO SECTIONS BUT HAS ACTIONS ===== */
+      !m.sections?.length && (m.tests?.length || m.practices?.length)
+        ? `<ul class="actions-list module-actions">
+            ${m.practices?.map(p => `
+              <li>
+                <a href="practice.html?module=${m.id}&practice=${p.id}">
+                  🧪 ${p.title}
+                </a>
+              </li>
+            `).join('') || ''}
+
+            ${m.tests?.map(t => `
+              <li>
+                <a href="quiz.html?module=${m.id}&test=${t.id}">
+                  📝 ${t.title}
+                </a>
+              </li>
+            `).join('') || ''}
+          </ul>`
+        : ''
+    }
+  `;
+
+  modulesList.appendChild(li);
+});
+
 
   /* ==================================================
      2. CLICK HANDLER (CONTENT LOAD)
