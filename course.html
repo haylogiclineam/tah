@@ -751,12 +751,12 @@ const modulesList = document.getElementById('modulesList');
      ================================================== */
 
   modulesList.addEventListener('click', e => {
-    // const target = e.target;
+    const target = e.target;
 
     if (!(target instanceof HTMLElement)) return;
 
     // отменяем jump от href="#"
-    if (target.tagName === 'A') e.preventDefault();
+    // if (target.tagName === 'A') e.preventDefault();
 
     /* ---------- MODULE CLICK ---------- */
     if (target.classList.contains('module-link')) {
@@ -764,9 +764,7 @@ const modulesList = document.getElementById('modulesList');
       const mod = modules.find(m => m.id === moduleId);
 
       // если НЕТ sections → сразу контент
-      if (!mod.sections?.length) {
-        renderModule(mod);
-      }
+      renderModule(mod);
     }
 
     /* ---------- SECTION CLICK ---------- */
