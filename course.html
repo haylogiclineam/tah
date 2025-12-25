@@ -18,8 +18,11 @@
         </div>
         <nav class="topnav">
           <a href="index.html">Գլխավոր</a>
+          <a href="about.html">Մեր մասին</a>
           <a href="course.html">Դասընթաց</a>
           <a href="resources.html">Ռեսուրսներ</a>
+          <a href="contact.html">Կապ մեզ հետ</a>
+          <a href="login.html" class="btn primary small">Մուտք / Գրանցվել</a>
         </nav>
       </div>
 
@@ -34,8 +37,8 @@
     
     <div class="two-col">
       <aside class="sidebar sidebar-modules-block">
-        <h4>Մոդուլներ</h4>
-        <p class="muted">Ընդհանուր մոդուլների ցանկը՝ ընտրելու համար</p>
+        <h4>Բաժիններ</h4>
+        <p class="muted">Ընդհանուր բաժինների ցանկը՝ ընտրելու համար</p>
         <ul id="modulesList" class="module-list">
           <!-- JS populate -->
         </ul>
@@ -62,16 +65,17 @@
       const modules = [
         {
           id: 1,
-          tests: [
-            { id: 1, title: "Թեստ 1" },
-          ],
-          practices: [
-            { id: 1, title: "Գործնական առաջադրանք 1" },
-          ],
-          title: 'Մոդուլ 1. Տեղեկատվական անվտանգության հիմնահարցերը',
+          title: 'Բաժին 1. Տեղեկատվական անվտանգության հիմնահարցերը',
           desc: 'Ստացեք ընդհանուր պատկերացում և հիմնական տերմինաբանություն',
           video: 'assets/videos/Տեղեկատվական անվտանգության հիմունքներ.mp4',
           poster: 'assets/images/intro-poster.jpg',
+          sections: null,
+          tests: [
+            { id: 1, title: "Թեստ 1" }
+          ],
+          practices: [
+            { id: 1, title: "Գործնական առաջադրանք 1" }
+          ],
           content: `
             <h4>Տեղեկատվական անվտանգության հիմնահարցերը</h4>
 
@@ -181,25 +185,21 @@
         },
         {
           id: 2,
-          tests: [
-            { id: 1, title: "Թեստ 1" },
-            { id: 2, title: "Թեստ 2" },
-            { id: 3, title: "Թեստ 3" },
-            { id: 4, title: "Թեստ 4" }
-          ],
-          practices: [
-            { id: 1, title: "Գործնական առաջադրանք 1" },
-            { id: 2, title: "Գործնական առաջադրանք 2" },
-            { id: 3, title: "Գործնական առաջադրանք 3" },
-            { id: 4, title: "Գործնական առաջադրանք 4" }
-          ],
-          title: 'Մոդուլ 2. Տեղեկատվական սպառնալիքների վերլուծություն',
+          title: 'Բաժին 2. Տեղեկատվական սպառնալիքների վերլուծություն',
           desc: 'Մոդելներ, սպառնալիքներ և վտանգներ',
           video: 'assets/videos/Սպառնալիքներ, Ֆիշինգ.mp4',
           poster: 'assets/images/module2-poster.jpg',
+          tests: null,
+          practices: null,
           sections: [
             {
               id: 'theme1',
+              tests: [
+                { id: 1, title: "Թեստ 1" }
+              ],
+              practices: [
+                { id: 1, title: "Գործնական առաջադրանք 1" }
+              ],
               title: '1. Կիբեռհարձակումներ (Malware եւ այլ)',
               content: `
   <h2>Տեղեկատվական անվտանգության սպառնալիքների վերլուծություն</h2>
@@ -244,6 +244,12 @@
             },
             {
               id: 'theme2',
+              tests: [
+                { id: 2, title: "Թեստ 2" }
+              ],
+              practices: [
+                { id: 2, title: "Գործնական առաջադրանք 2" }
+              ],
               title: '2. Ֆիշինգ (Phishing) և սոցիալական ինժեներիա',
               content: `
   <h2>Ֆիշինգ (Phishing)</h2>
@@ -319,6 +325,12 @@
             },
             {
               id: 'theme3',
+              tests: [
+                { id: 3, title: "Թեստ 3" }
+              ],
+              practices: [
+                { id: 3, title: "Գործնական առաջադրանք 3" }
+              ],
               title: '3. Սոցիալական ինժեներիա — մեթոդներ եւ կանխարգելում',
               content: `
   <h2>Սոցիալական ինժեներիա</h2>
@@ -404,6 +416,12 @@
             },
             {
               id: 'theme4',
+              tests: [
+                { id: 4, title: "Թեստ 4" }
+              ],
+              practices: [
+                { id: 4, title: "Գործնական առաջադրանք 4" }
+              ],
               title: '4. Տարբեր սպառնալիքներ',
               content: `
                 <h2>Տարբեր սպառնալիքներ</h2>
@@ -463,7 +481,7 @@
             { id: 1, title: "Գործնական առաջադրանք 1" },
             { id: 2, title: "Գործնական առաջադրանք 2" },
           ],
-          title: 'Մոդուլ 3. Տեղեկատվական պաշտպանության եղանակները և մեթոդները',
+          title: 'Բաժին 3. Տեղեկատվական պաշտպանության եղանակները և մեթոդները',
           desc: 'Կոդավորում, ֆիլտրներ, պարբերական պահուստավորում',
           video: 'assets/videos/Дизайн без названия.mp4',
           content: `
@@ -578,7 +596,7 @@
       practices: [
         { id: 1, title: "Գործնական առաջադրանք 1" },
       ],
-      title: 'Մոդուլ 4. Տեղեկատվական անվտանգության և տեղեկատվական պաշտպանության ժամանակակից մեթոդները',
+      title: 'Բաժին 4. Տեղեկատվական անվտանգության և տեղեկատվական պաշտպանության ժամանակակից մեթոդները',
       desc: 'Մոդեռն միջոցներ և պրակտիկ կիրառումներ',
       video: 'assets/videos/մոդուլ 4.mp4',
       content: `
@@ -644,116 +662,184 @@
       `
     }
       ];
+const modulesList = document.getElementById('modulesList');
+  const contentCard = document.getElementById('contentCard');
 
-      const modulesList = document.getElementById('modulesList');
-      const mTitle = document.getElementById('mTitle');
-      const mDesc = document.getElementById('mDesc');
-      const mVideo = document.getElementById('mVideo');
+  /* ==================================================
+     1. RENDER SIDEBAR (MODULES → SECTIONS → ACTIONS)
+     ================================================== */
 
-      modules.forEach(m => {
-        const li = document.createElement('li');
-        li.className = 'module-item';
-        li.innerHTML = `<button class="linkish" data-id="${m.id}">${m.title}</button>`;
-        modulesList.appendChild(li);
-      });
+  modules.forEach(m => {
+    const li = document.createElement('li');
+    li.className = 'module-item';
 
-      modulesList.addEventListener('click', e => {
-  if (e.target.matches('button.linkish')) {
-    // highlight active module в sidebar
-    document.querySelectorAll('.linkish').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-
-    const id = +e.target.dataset.id;
-    const mod = modules.find(x => x.id === id);
-    
-    const cardActions = `
-    <div>
-      ${mod.tests.map(t => 
-        `<a href="quiz.html?module=${mod.id}&test=${t.id}" class="btn">${t.title}</a>`
-      ).join('')}
+    li.innerHTML = `
+      <div class="module-row">
+        <a href="#" class="module-link" data-module="${m.id}">
+          ${m.title}
+        </a>
       </div>
+
+      ${
+        m.sections?.length
+          ? `<ul class="sections-list">
+              ${m.sections.map(s => `
+                <li class="section-item">
+                  <div class="section-row">
+                    <a href="#"
+                       class="section-link"
+                       data-module="${m.id}"
+                       data-section="${s.id}">
+                      ${s.title}
+                    </a>
+                  </div>
+
+                  <ul class="actions-list">
+                    ${s.practices.map(p => `
+                      <li>
+                        <a href="practice.html?module=${m.id}&practice=${p.id}">
+                          🧪 ${p.title}
+                        </a>
+                      </li>
+                    `).join('')}
+
+                    ${s.tests.map(t => `
+                      <li>
+                        <a href="quiz.html?module=${m.id}&section=theme${s.id}&test=${t.id}">
+                          📝 ${t.title}
+                        </a>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </li>
+              `).join('')}
+            </ul>`
+          : ''
+      }
     `;
 
-    const cardActionsPractice = `
-    <div class="practices-buttons-block">
-      ${mod.practices.map(t => 
-        `<a href="practice.html?module=${mod.id}&practice=${t.id}" class="btn">${t.title}</a>`
-      ).join('')}
-      </div>
-    `;
-    const card = document.getElementById('contentCard');
+    modulesList.appendChild(li);
+  });
 
-    if (mod.sections && Array.isArray(mod.sections)) {
-      const buttonsHtml = mod.sections.map((s, idx) => {
-        return `<button class="section-btn" data-section="${s.id}">${s.title}</button>`;
-      }).join('');
+  /* ==================================================
+     2. CLICK HANDLER (CONTENT LOAD)
+     ================================================== */
 
-      card.innerHTML = `
-        <h3>${mod.title}</h3>
-        <p class="muted">${mod.desc}</p>
+  modulesList.addEventListener('click', e => {
+    // const target = e.target;
 
-        ${ mod.poster || mod.video ? `
-          <div class="media">
-            ${ mod.video && mod.video.includes('youtube') 
-               ? `<iframe class="video-embed" src="${mod.video}" frameborder="0" allowfullscreen style="width:100%;height:420px;border-radius:12px;"></iframe>`
-               : `<video controls poster="${mod.poster || ''}" style="width:100%;border-radius:8px;"><source src="${mod.video}" type="video/mp4">Ձեր դիտարկիչը չի աջակցում mp4 ձևաչափը։</video>`
-            }
-          </div>` : '' }
+    if (!(target instanceof HTMLElement)) return;
 
-        <div class="sections-control" style="margin:18px 0;">${buttonsHtml}</div>
+    // отменяем jump от href="#"
+    if (target.tagName === 'A') e.preventDefault();
 
-        <div id="sectionContent" class="module-text"></div>
+    /* ---------- MODULE CLICK ---------- */
+    if (target.classList.contains('module-link')) {
+      const moduleId = +target.dataset.module;
+      const mod = modules.find(m => m.id === moduleId);
 
-        <div class="card-actions" style="margin-top:18px;">
-          ${cardActionsPractice}
-          ${cardActions}
-        </div>
-      `;
+      // если НЕТ sections → сразу контент
+      if (!mod.sections?.length) {
+        renderModule(mod);
+      }
+    }
 
-      const showSection = (sectionId) => {
-        const section = mod.sections.find(s => s.id === sectionId) || mod.sections[0];
-        document.getElementById('sectionContent').innerHTML = section.content;
+    /* ---------- SECTION CLICK ---------- */
+    if (target.classList.contains('section-link')) {
+      const moduleId = +target.dataset.module;
+      const sectionId = target.dataset.section;
 
-        document.querySelectorAll('.section-btn').forEach(b => {
-          b.classList.toggle('active', b.dataset.section === section.id);
-        });
-      };
+      const mod = modules.find(m => m.id === moduleId);
+      const section = mod.sections.find(s => s.id === sectionId);
 
-      // навесим обработчик на кнопки
-      const control = card.querySelector('.sections-control');
-      control.addEventListener('click', (ev) => {
-        if (ev.target.matches('.section-btn')) {
-          showSection(ev.target.dataset.section);
-        }
-      });
+      renderSection(mod, section);
+    }
+  });
 
-      // показать первую секцию по умолчанию
-      showSection(mod.sections[0].id);
+  /* ==================================================
+     3. RENDER MODULE (NO SECTIONS)
+     ================================================== */
 
-    } else {
-      // если нет sections — старый рендер (один content)
-      card.innerHTML = `
-        <h3>${mod.title}</h3>
-        <p class="muted">${mod.desc}</p>
+  function renderModule(mod) {
+    contentCard.innerHTML = `
+      <h3>${mod.title}</h3>
+      <p class="muted">${mod.desc}</p>
+
+      ${mod.video ? `
         <div class="media">
-          <video controls poster="${mod.poster || ''}" style="width:100%;border-radius:8px;">
+          <video controls poster="${mod.poster || ''}">
             <source src="${mod.video}" type="video/mp4">
             Ձեր դիտարկիչը չի աջակցում mp4 ձևաչափը։
           </video>
         </div>
-        <div class="module-text">${mod.content || ''}</div>
-        <div class="card-actions">
-          ${cardActionsPractice}
-          ${cardActions}
+      ` : ''}
+
+      <div class="module-text">
+        ${mod.content || ''}
+      </div>
+
+      <div class="card-actions">
+        ${mod.practices?.map(p =>
+          `<a href="practice.html?module=${mod.id}&practice=${p.id}" class="btn">
+            ${p.title}
+          </a>`
+        ).join('') || ''}
+
+        ${mod.tests?.map(t =>
+          `<a href="quiz.html?module=${mod.id}&test=${t.id}" class="btn outline">
+            ${t.title}
+          </a>`
+        ).join('') || ''}
+      </div>
+    `;
+  }
+
+  /* ==================================================
+     4. RENDER SECTION (WITH TESTS / PRACTICES)
+     ================================================== */
+
+  function renderSection(mod, section) {
+    contentCard.innerHTML = `
+      <h3>${section.title}</h3>
+      <p class="muted">${mod.title}</p>
+
+      ${mod.video ? `
+        <div class="media">
+          <video controls poster="${mod.poster || ''}">
+            <source src="${mod.video}" type="video/mp4">
+          </video>
         </div>
-      `;
-    }
+      ` : ''}
+
+      <div class="module-text">
+        ${section.content}
+      </div>
+
+      <div class="card-actions">
+        ${section.practices.map(p =>
+          `<a href="practice.html?module=${mod.id}&section=${section.id}&practice=${p.id}" class="btn">
+            ${p.title}
+          </a>`
+        ).join('')}
+
+        ${section.tests.map(t =>
+          `<a href="quiz.html?module=${mod.id}&section=${section.id}&test=${t.id}" class="btn outline">
+            ${t.title}
+          </a>`
+        ).join('')}
+      </div>
+    `;
+  }
+
+  /* ==================================================
+     5. AUTO LOAD FIRST MODULE WITHOUT SECTIONS
+     ================================================== */
+
+  const firstModule = modules.find(m => !m.sections?.length);
+  if (firstModule) {
+    renderModule(firstModule);
   }
 });
-
-
-      document.querySelector('.module-list button')?.click();
-    });
   </script>
 </body>
 </html>

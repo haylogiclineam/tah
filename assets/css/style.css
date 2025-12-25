@@ -61,6 +61,65 @@ body{margin:0;background:var(--bg);color:#111;font-family:var(--font, 'Open Sans
 label{display:block;margin:10px 0}
 input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
 
+/* reset */
+.module-list,
+.sections-list,
+.actions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* base rows */
+.module-row,
+.section-row {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+/* hidden by default */
+.sections-list,
+.actions-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .25s ease, opacity .2s;
+  opacity: 0;
+}
+
+/* MODULE hover → show sections */
+.module-item:hover > .sections-list {
+  max-height: 600px;
+  opacity: 1;
+}
+
+/* SECTION hover → show tests + practices */
+.section-item:hover > .actions-list {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* visuals */
+.module-link,
+.section-link,
+.actions-list a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.actions-list a {
+  padding: 6px 20px;
+  font-size: 0.9em;
+  opacity: .85;
+}
+
+.actions-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+
 @media (max-width:900px){
   .two-col{flex-direction:column}
   .hero{flex-direction:column}
