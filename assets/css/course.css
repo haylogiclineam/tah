@@ -71,6 +71,8 @@
   
   .module-item {
     margin-bottom: 14px;
+    border: 1px solid #39a7ff;
+    border-radius: 12px;
   }
   
   .linkish {

@@ -4,28 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Մուտք — Տեղեկատվական անվտանգության</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-  <header class="site-header container">
+<body class="auth-page">
+
+  <header class="site-header auth-header">
     <div class="container-logo-block">
-      <img src="assets/images/logo.png" alt="">
+      <img src="assets/images/logo.png" alt="Logo" class="logo">
     </div>
   </header>
 
-  <main class="container content auth">
-    <div class="card auth-card">
-      <h2>Մուտք</h2>
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <h2>Մուտք համակարգ</h2>
+      <p class="auth-subtitle">Մուտք գործեք ձեր հաշիվ</p>
+
       <form id="loginForm">
-        <label>Էլ. հասցե<input type="email" id="email" required></label>
-        <label>Գաղտնաբառ<input type="password" id="password" required></label>
-        <div class="row">
-          <button class="btn primary" type="submit">Մուտք</button>
-          <a href="register.html" class="btn">Գրանցվել</a>
+        <div class="field">
+          <label>Էլ. հասցե</label>
+          <input type="email" id="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div class="field">
+          <label>Գաղտնաբառ</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+
+        <button class="btn primary" type="submit">Մուտք</button>
+
+        <div class="auth-footer">
+          <span>Դեռ չունե՞ք հաշիվ</span>
+          <a href="register.html">Գրանցվել</a>
         </div>
       </form>
-      <div id="loginMsg" class="muted"></div>
+
+      <div id="loginMsg" class="auth-msg"></div>
     </div>
   </main>
 
@@ -38,14 +53,18 @@
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const user = users.find(u => u.email === email && u.password === pwd);
       const msg = document.getElementById('loginMsg');
+
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify({email:user.email, name:user.name}));
-        msg.textContent = 'Ինքնության հաստատում՝ հաջողվեց։ Տարվեք դեպի դասընթաց։';
-        setTimeout(()=>{ location.href = 'course.html'; }, 800);
+        msg.textContent = '✅ Մուտքը հաջողվեց։';
+        msg.className = 'auth-msg success';
+        setTimeout(()=> location.href = 'course.html', 900);
       } else {
-        msg.textContent = 'Սխալ էլ․ հասցե կամ գաղտնաբառ։ Խնդրում ենք փորձել կրկին կամ գրանցվել։';
+        msg.textContent = '❌ Սխալ էլ. հասցե կամ գաղտնաբառ';
+        msg.className = 'auth-msg error';
       }
     });
   </script>
+
 </body>
 </html>
