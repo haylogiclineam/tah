@@ -244,8 +244,8 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
 
 .resource-banner-block {
   width: 100%;
-  height: 300px;
-  background-image: url("../images/banner-recource.jpeg");
+  height: 350px;
+  background-image: url("../images/viber_image_2025-12-25_01-02-32-840.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 12px;
@@ -278,8 +278,74 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
+  position: relative;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.main-content-pdf {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-content-pdf a {
+  margin: 0;
+}
+
+.slide-card-1 {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url('../images/viber_image_2025-12-25_01-02-29-895.png');
+}
+
+.slide-card-2 {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url('../images/viber_image_2025-12-25_01-02-30-134.jpg');
+}
+
+.slide-card-3 {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url('../images/viber_image_2025-12-25_01-02-30-143.jpg');
+}
+
+.slide-card-4 {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url('../images/viber_image_2025-12-25_01-02-30-162.jpg');
+}
+
+.slide-card-5 {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url('../images/viber_image_2025-12-25_01-02-32-788.png');
 }
 
 .slide-card:hover {
@@ -350,8 +416,8 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
 
 .contact-banner-block {
   width: 100%;
-  height: 300px;
-  background-image: url("../images/contact-us.jpeg");
+  height: 350px;
+  background-image: url("../images/viber_image_2025-12-25_01-02-32-808.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -390,6 +456,38 @@ input, textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd}
   height: 350px;
   width: 100%;
   border-radius: 12px;
+}
+
+.banner-course-page-block {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+.container.content.course-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.banner-course-page-1 {
+  width: 100%;
+  height: 250px;
+  border-radius: 14px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../images/viber_image_2025-12-25_01-02-30-162.jpg');
+}
+
+.banner-course-page-2 {
+  width: 100%;
+  height: 250px;
+  border-radius: 14px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../images/viber_image_2025-12-25_01-02-30-134.jpg');
 }
 
 .container-footer-block {
